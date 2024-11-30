@@ -1,0 +1,234 @@
+/* General Styles */
+.expense-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Month Dropdown */
+.month-dropdown {
+  padding: 10px;
+  border-radius: 50px; /* Fully rounded edges */
+  border: 1px solid #ddd;
+  background-color: #fff; /* White background */
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-align: center; /* Center the text */
+  appearance: none; /* Remove default dropdown styling */
+  cursor: pointer;
+  outline: none;
+  width: 120px; /* Set fixed width */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  margin-right: 10px;
+}
+
+/* Top Bar */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.total-spending {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.total-spending h2 {
+  font-size: 36px;
+  color: #333;
+}
+
+/* Spending Summary */
+.spending-summary {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.summary-box {
+  background: #f4f4f9;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-box p:first-child {
+  font-size: 14px;
+  color: #888;
+}
+
+.summary-box p:last-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Add Expense Form */
+.add-expense-form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-expense-form input,
+.add-expense-form select,
+.add-expense-form button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+
+.add-expense-form button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-expense-form button:hover {
+  background-color: #555;
+}
+
+/* Expense List */
+.expense-list {
+  margin-top: 20px;
+}
+
+.expense-item {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expense-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.expense-left {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.expense-category{
+  font-size: 24px;
+}
+.expense-right {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.expense-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.expense-item button {
+  background-color: orangered;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.expense-item button.edit-btn {
+  background-color: green;
+}
+
+.expense-item button:hover {
+  opacity: 0.9;
+}
+/* Navigation Bar */
+.nav-wrapper {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-wrapper a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-wrapper a:hover {
+  color: #ffd700;
+  transform: scale(1.1);
+}
+
+/* Login Form */
+.login-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #555;
+}
+
+.login-form p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
