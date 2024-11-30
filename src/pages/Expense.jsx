@@ -34,6 +34,7 @@ function Expense() {
           Total += expense.amount;
         }
         setTotalSpending(Total);
+        window.location.reload();
       })
       .catch((error) => console.error(error));
     }
