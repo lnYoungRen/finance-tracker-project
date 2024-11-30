@@ -27,6 +27,7 @@ function AddExpenseForm(props) {
           setComment("");
           setDate("");
           setCategory("");
+          window.location.reload();
         }
       } catch(error){
         console.error("error adding", error);
