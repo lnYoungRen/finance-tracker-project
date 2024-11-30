@@ -22,6 +22,7 @@ function LoginForm() {
         console.log(response.data.user);
         window.location.href = "/";
       }
+      alert("Login failed")
     } catch (error) {
       console.error(error.response.data.message || "Login failed");
     }
