@@ -54,7 +54,7 @@ function ExpenseList({ expenses, userId, selectedMonth, setExpenses}) {
         `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${id}`
       )
       .then(() => {
-        const updatedExpenses = expenses.filter((expenses) => expense._id !== id);
+        const updatedExpenses = expenses.filter((expenses) => expenses._id !== id);
         setExpenses(updatedExpenses);
         window.location.reload();
       })
