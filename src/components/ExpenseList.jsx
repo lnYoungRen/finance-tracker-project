@@ -32,9 +32,9 @@ function ExpenseList({ expenses, userId, selectedMonth, setExpenses}) {
         editedExpense
       )
       .then((res) => {
-        const updatedExpenses = expenses.map((expense) => {
+        const updatedExpenses = expenses.map((expense) => 
           expense._id === editingId ? res.data.expense : expense
-        });
+        );
         setExpenses(updatedExpenses)
         setEditingId(null); // Exit editing mode
       })
