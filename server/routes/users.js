@@ -70,7 +70,7 @@ router.post('/:id/months/:month/expenses', async (req, res) => {
 });
 
 // Update an expense
-router.patch('/users/:id/months/:month/expenses/:expenseId', async (req, res) => {
+router.patch('/:id/months/:month/expenses/:expenseId', async (req, res) => {
     try {
         const { id, month, expenseId } = req.params;
         const { amount, date, comment, amountType } = req.body;
@@ -105,7 +105,7 @@ router.patch('/users/:id/months/:month/expenses/:expenseId', async (req, res) =>
   
 
 // Delete an expense
-router.delete('/users/:id/months/:month/expenses/:expenseId', async (req, res) => {
+router.delete('/:id/months/:month/expenses/:expenseId', async (req, res) => {
     try {
         const { id, month, expenseId } = req.params;
     

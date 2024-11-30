@@ -17,13 +17,24 @@ function ExpenseList({ expenses, userId, selectedMonth, setExpenses}) {
       })
       .catch((error) => console.error(error));
   }, [expenses, userId, selectedMonth, setExpenses]);
+
+  function handleEditClick(expense){
+    // set edit id to expense being edit
+    setEditingId(expense._id);
+    // get the value
+    setEditedExpense({ ...expense });
+  };
+
   function handleSaveClick() {
     axios
       .patch(
-        `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${editingId}`,
-        editedExpense
+        `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${editingId}`, editedExpense
       )
-      .then(() => {
+      .then((res) => {
+        const updatedExpenses = expenses.map((expense) => 
+          expense._id === editingId ? res.data.expense : expense
+        );
+        setExpenses(updatedExpenses)
         setEditingId(null); // Exit editing mode
       })
       .catch((error) => {
@@ -42,55 +53,14 @@ function ExpenseList({ expenses, userId, selectedMonth, setExpenses}) {
         `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${id}`
       )
       .then(() => {
+        const updatedExpenses = expenses.filter((expenses) => expenses._id !== id);
+        setExpenses(updatedExpenses);
         window.location.reload();
       })
       .catch((error) => {
         console.error('Error deleting the expense:', error);
       });
   }
-  function handleEditClick(expense){
-    // set edit id to expense being edit
-    setEditingId(expense._id);
-    // get the value
-    setEditedExpense({ ...expense });
-  };
-
-  // function handleSaveClick() {
-  //   axios
-  //     .patch(
-  //       `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${editingId}`, editedExpense
-  //     )
-  //     .then((res) => {
-  //       const updatedExpenses = expenses.map((expense) => 
-  //         expense._id === editingId ? res.data.expense : expense
-  //       );
-  //       setExpenses(updatedExpenses)
-  //       setEditingId(null); // Exit editing mode
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error saving the expense:', error);
-  //     });
-  // }
-  
-  // function handleCancelClick() {
-  //   setEditingId(null); // Exit editing mode
-  // }
-  
-
-  // function handleDeleteClick(id) {
-  //   axios
-  //     .delete(
-  //       `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${id}`
-  //     )
-  //     .then(() => {
-  //       const updatedExpenses = expenses.filter((expenses) => expenses._id !== id);
-  //       setExpenses(updatedExpenses);
-  //       window.location.reload();
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error deleting the expense:', error);
-  //     });
-  // }
   
 
   // Viewing Template, get an expense and display it
