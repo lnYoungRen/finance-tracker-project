@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const BACKEND = "https://finance-tracker-project.onrender.com";
+const BACKEND = "https://finance-tracker-project.onrender.com/auth/register";
 
 
 function RegisterForm() {
