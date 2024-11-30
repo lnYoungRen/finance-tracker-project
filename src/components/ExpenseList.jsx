@@ -36,6 +36,7 @@ function ExpenseList({ expenses, userId, selectedMonth, setExpenses}) {
         );
         setExpenses(updatedExpenses)
         setEditingId(null); // Exit editing mode
+        window.location.reload();
       })
       .catch((error) => {
         console.error('Error saving the expense:', error);
