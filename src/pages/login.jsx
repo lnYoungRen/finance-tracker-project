@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const BACKEND = "https://finance-tracker-project.onrender.com";
 
 function LoginForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const history = useHistory();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +23,7 @@ function LoginForm() {
         alert("Login successful");
         localStorage.setItem("userId", response.data.user._id);
         console.log(response.data.user);
-        window.location.href = "/";
+        history.push("/");
       }
       else{
         alert("login failed");
