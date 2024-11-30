@@ -3,7 +3,7 @@ import axios from "axios";
 
 const BACKEND = "https://finance-tracker-project.onrender.com";
 
-function ExpenseList({ expenses, userId, selectedMonth, onExpensesUpdated}) {
+function ExpenseList({ expenses, userId, selectedMonth, setExpenses}) {
   // track expense being edit
   const [editingId, setEditingId] = useState(null);
   // store data of the expense being edited
@@ -13,10 +13,10 @@ function ExpenseList({ expenses, userId, selectedMonth, onExpensesUpdated}) {
     axios
       .get(`${BACKEND}/${userId}/months/${selectedMonth}`)
       .then((response) => {
-        onExpensesUpdated(response.data.expenses); // Update the parent component's state with the latest data
+        setExpenses(response.data.expenses); // Update the parent component's state with the latest data
       })
       .catch((error) => console.error(error));
-  }, [expenses, userId, selectedMonth, onExpensesUpdated]);
+  }, [expenses, userId, selectedMonth, setExpenses]);
 
   function handleEditClick(expense){
     // set edit id to expense being edit
@@ -31,7 +31,11 @@ function ExpenseList({ expenses, userId, selectedMonth, onExpensesUpdated}) {
         `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${editingId}`,
         editedExpense
       )
-      .then(() => {
+      .then((res) => {
+        const updatedExpenses = expenses.map((expense) => {
+          expense._id === editingId ? res.data.expense : expense
+        });
+        setExpenses(updatedExpenses)
         setEditingId(null); // Exit editing mode
       })
       .catch((error) => {
@@ -50,6 +54,8 @@ function ExpenseList({ expenses, userId, selectedMonth, onExpensesUpdated}) {
         `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${id}`
       )
       .then(() => {
+        const updatedExpenses = expenses.filter((expenses) => expense._id !== id);
+        setExpenses(updatedExpenses);
         window.location.reload();
       })
       .catch((error) => {

@@ -58,7 +58,7 @@ function Expense() {
       {/* call back for adding new expense */}
       <AddExpenseForm onExpenseAdded={addNewExpense} userId={userId} selectedMonth={selectedMonth} />
       {/* onExpenseUpdate={setExpenses}  */}
-      <ExpenseList expenses={expenses} userId={userId} selectedMonth={selectedMonth} setExpensesx={setExpenses} />
+      <ExpenseList expenses={expenses} userId={userId} selectedMonth={selectedMonth} setExpenses={setExpenses} />
     </div>
   );
 }
