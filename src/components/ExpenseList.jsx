@@ -14,6 +14,7 @@ function ExpenseList({ expenses, userId, selectedMonth, setExpenses}) {
       .get(`${BACKEND}/${userId}/months/${selectedMonth}`)
       .then((response) => {
         setExpenses(response.data.expenses); // Update the parent component's state with the latest data
+        window.location.reload();
       })
       .catch((error) => console.error(error));
   }, [expenses, userId, selectedMonth, setExpenses]);
