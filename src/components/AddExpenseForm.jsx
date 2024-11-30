@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const BACKEND = "http://localhost:5001";
+const BACKEND = "https://finance-tracker-project.onrender.com";
 
 function AddExpenseForm(props) {
     const [amount, setAmount] = useState('');

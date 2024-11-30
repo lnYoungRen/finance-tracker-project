@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
+const BACKEND = "https://finance-tracker-project.onrender.com";
+
+
 function RegisterForm() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -9,7 +12,7 @@ function RegisterForm() {
         e.preventDefault();
 
         try {
-        const response = await axios.post("http://localhost:5001/auth/register", {
+        const response = await axios.post(BACKEND, {
             name,
             email,
         });

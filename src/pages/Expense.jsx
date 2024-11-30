@@ -7,7 +7,7 @@ import ExpenseList from '../components/ExpenseList';
 import '../index.css';
 import axios from 'axios';
 
-const BACKEND = "http://localhost:5001";
+const BACKEND = "https://finance-tracker-project.onrender.com";
 
 function Expense() {
   //https://medium.com/@rahul.javatpoint12/simple-ways-to-get-the-current-month-in-javascript-9dad07c3fb90#:~:text=Using%20the%20getMonth()%20Method,call%20getMonth()%20on%20it.
@@ -58,7 +58,7 @@ function Expense() {
       {/* call back for adding new expense */}
       <AddExpenseForm onExpenseAdded={addNewExpense} userId={userId} selectedMonth={selectedMonth} />
       {/* onExpenseUpdate={setExpenses}  */}
-      <ExpenseList expenses={expenses} userId={userId} selectedMonth={selectedMonth} setExpenses={setExpenses} />
+      <ExpenseList expenses={expenses} userId={userId} selectedMonth={selectedMonth} setExpensesx={setExpenses} />
     </div>
   );
 }

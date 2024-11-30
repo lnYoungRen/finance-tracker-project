@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
+const BACKEND = "https://finance-tracker-project.onrender.com";
+
 function ExpenseList({ expenses, userId, selectedMonth, onExpensesUpdated}) {
   // track expense being edit
   const [editingId, setEditingId] = useState(null);
@@ -9,7 +11,7 @@ function ExpenseList({ expenses, userId, selectedMonth, onExpensesUpdated}) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5001/users/${userId}/months/${selectedMonth}`)
+      .get(`${BACKEND}/${userId}/months/${selectedMonth}`)
       .then((response) => {
         onExpensesUpdated(response.data.expenses); // Update the parent component's state with the latest data
       })
@@ -26,7 +28,7 @@ function ExpenseList({ expenses, userId, selectedMonth, onExpensesUpdated}) {
   function handleSaveClick() {
     axios
       .patch(
-        `http://localhost:5001/users/${userId}/months/${selectedMonth}/expenses/${editingId}`,
+        `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${editingId}`,
         editedExpense
       )
       .then(() => {
@@ -45,7 +47,7 @@ function ExpenseList({ expenses, userId, selectedMonth, onExpensesUpdated}) {
   function handleDeleteClick(id) {
     axios
       .delete(
-        `http://localhost:5001/users/${userId}/months/${selectedMonth}/expenses/${id}`
+        `${BACKEND}/users/${userId}/months/${selectedMonth}/expenses/${id}`
       )
       .then(() => {
         window.location.reload();
