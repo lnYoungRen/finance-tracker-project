@@ -4,13 +4,9 @@ import axios from "axios";
 function RegisterForm() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrorMessage("");
-        setSuccessMessage("");
 
         try {
         const response = await axios.post("http://localhost:5001/auth/register", {
@@ -20,14 +16,12 @@ function RegisterForm() {
 
         if (response.status === 201) {
             alert("registered");
-            setSuccessMessage("Registration successful! You can now log in.");
             setName("");
             setEmail("");
         }
         } catch (error) {
             alert("error");
             console.error(error.message);
-            setErrorMessage(error.message);
         }
     };
 
